@@ -42,8 +42,8 @@ Therefore, the logistic centre can easily find out how their drivers drive on th
 <br><br>
 NOTE: In order to proceed this guide, prior knowledge of working with the following technologies is highly required:
 
-* Kafka 
-* Spark 
+* Kafka (Kafka Producer and Kafka Consumer)
+* Spark (Spark Master, Spark Worker and Spark Driver)
 * ZooKeeper
 * Maven
 * Cassandra time series database
