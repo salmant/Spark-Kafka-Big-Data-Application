@@ -13,7 +13,7 @@ The CVS Big Data application includes various components deployable on cloud, fo
 * Kafka Producer: `cvs-kafka-producer` is the edge processing part of the application deployed on Raspberry Pi.
 * Kafka Broker: It is a widely used distributed streaming platform capable of handling trillions of events a day for messages passed within the system. This component can be deployed on the fog or cloud computing infrastructures.
 * Spark Processor: Spark is a powerful streaming analytics tool deployed on the cloud. It has three types of modules: Spark Master, Spark Workers and finally Spark Driver named `cvs-spark-processor`.
-* Database Server: It is implemented by the Apache Cassandra time series database. In order to create the Cassandra database, this file can be used: 
+* Database Server: It is implemented by the Apache Cassandra time series database. In order to create the Cassandra database, the schema file can be used: [cassandra-schema.cql](https://github.com/salmant/Spark-Kafka-Big-Data-Application/blob/master/cassandra-schema.cql) 
 * etc.
 
 **Kafka Broker**: Apache Kafka broker is an open-source distributed streaming platform developed to provide a unified, high-throughput, low-latency broker for handling real-time data feeds. Kafka can connect to external systems for data import/export via Kafka Connect and provides Kafka Streams. Kafka allows applications publish and subscribe to real-time streams of records called `topics`. Kafka is basically used to build real-time streaming Big Data applications or data pipelines.
@@ -58,7 +58,7 @@ In order to instantiate the `Kafka Broker`, you can execute the following comman
 <br><br>
 As you can see, we need to define the values of three environment variables for the `Kafka Broker`. The variable named `KAFKA_ZOOKEEPER_IP` is the IP address of the machine where the `ZooKeeper Service` is running. The variable named `KAFKA_ADVERTISED_HOST_NAME` is the IP address of the machine where the `Kafka Broker` itself is running. And the variable named `KAFKA_TOPIC` is the name of topic where events gets published to by the `cvs-kafka-producer`.
 <br><br>
-In order to instantiate the `Spark Master`, you can execute the following command:<br><br>
+We would like to set up a Spark standalone cluster with one `Spark Master` and a `Spark Worker` using the default namespace and resources. In order to instantiate the `Spark Master`, you can execute the following command:<br><br>
 `docker run -p 8080:8080 -p 7077:7077 -e ENABLE_INIT_DAEMON=false -d salmant/cvs_spark_master_cloud:1.2`
 <br><br>
 In order to instantiate the `Spark Worker`, you can execute the following command:<br><br>
