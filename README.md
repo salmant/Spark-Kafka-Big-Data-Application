@@ -12,7 +12,7 @@ The CVS Big Data project is designed and implemented upon a zero-downtime, scala
 The CVS Big Data application includes various components deployable on cloud, fog and edge computing infrastructures:
 * Kafka Producer: `cvs-kafka-producer` is the edge processing part of the application deployed on Raspberry Pi.
 * Kafka Broker: It is a widely used distributed streaming platform capable of handling trillions of events a day for messages passed within the system. This component can be deployed on the fog or cloud computing infrastructures.
-* Spark Processor: `cvs-spark-processor` is a powerful streaming analytics tool deployed on the cloud.
+* Spark Processor: Spark is a powerful streaming analytics tool deployed on the cloud. It has three types of modules: Spark Master, Spark Workers and finally Spark Driver named `cvs-spark-processor`.
 * Database Server: It is implemented by the Apache Cassandra time series database. In order to create the Cassandra database, this file can be used: 
 * etc.
 
@@ -47,16 +47,22 @@ NOTE: In order to proceed this guide, prior knowledge of working with the follow
 * ZooKeeper
 * Maven
 * Cassandra time series database
-* CQLSH
+* CQL (Cassandra Query Language)
 * Docker containers
 
-Before you begin, make sure you have your own Kafka broker, ZooKeeper and Cassandra deployed and ready to be used. In order to instantiate the ZooKeeper service, you can execute the following command:<br><br>
+Before you begin, make sure you have your own `Kafka Broker`, `ZooKeeper Service`, `Cassandra Server`, `Spark Master` and `Spark Worker` already deployed and ready to be used. In order to instantiate the `ZooKeeper Service`, you can execute the following command:<br><br>
 `docker run -p 2181:2181 -p 2888:2888 -p 3888:3888 -d salmant/cvs_zookeeper_cloud:1.2`
 <br><br>
-In order to instantiate the Kafka broker, you can execute the following command:<br><br>
+In order to instantiate the `Kafka Broker`, you can execute the following command:<br><br>
 `docker run -p 9092:9092 -e KAFKA_ADVERTISED_HOST_NAME="X.X.X.X" -e KAFKA_TOPIC="X-Y-Z" -e KAFKA_ZOOKEEPER_IP="Y.Y.Y.Y" -d salmant/cvs_kafka_broker_cloud:1.2`
 <br><br>
-As you can see, We need to define the values of three environment variables for the Kafka broker. The variable named `KAFKA_ZOOKEEPER_IP` is the IP address of the machine where the ZooKeeper service is running. The variable named `KAFKA_ADVERTISED_HOST_NAME` is the IP address of the machine where the Kafka broker itself is running. And the variable named `KAFKA_TOPIC` is the name of topic where events gets published to by the cvs-kafka-producer.
+As you can see, we need to define the values of three environment variables for the `Kafka Broker`. The variable named `KAFKA_ZOOKEEPER_IP` is the IP address of the machine where the `ZooKeeper Service` is running. The variable named `KAFKA_ADVERTISED_HOST_NAME` is the IP address of the machine where the `Kafka Broker` itself is running. And the variable named `KAFKA_TOPIC` is the name of topic where events gets published to by the `cvs-kafka-producer`.
 <br><br>
-
+In order to instantiate the `Spark Master`, you can execute the following command:<br><br>
+`docker run -p 8080:8080 -p 7077:7077 -e ENABLE_INIT_DAEMON=false -d salmant/cvs_spark_master_cloud:1.2`
+<br><br>
+In order to instantiate the `Spark Worker`, you can execute the following command:<br><br>
+`docker run -p 8081:8081 -e SPARK_MASTER_IP=Z.Z.Z.Z -e ENABLE_INIT_DAEMON=false -d salmant/cvs_spark_worker_cloud:1.2`
+<br><br>
+In order to deploy the `Spark Worker`, we need to define the value of an environment variable named `SPARK_MASTER_IP` which is the IP address of the machine where the `Spark Master` is running.
 
