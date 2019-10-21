@@ -10,24 +10,17 @@ The CVS Big Data project is designed and implemented upon a zero-downtime, scala
 * Driver behaviour profiling using AI and Fuzzy Logic.
 
 The CVS Big Data application includes various components deployable on cloud, fog and edge computing infrastructures:
-* Kafka Producer: It is the edge processing part of the application deployed on Raspberry Pi.
-* Kafka Broker: It is a widely used distributed streaming platform capable of handling trillions of events a day for messages passed within the system.
-* Spark Processor: It is a powerful streaming analytics tool in real-time on the cloud.
-* Database Server: It is implemented by the Apache Cassandra time series database.
+* Kafka Producer: `cvs-kafka-producer` is the edge processing part of the application deployed on Raspberry Pi.
+* Kafka Broker: It is a widely used distributed streaming platform capable of handling trillions of events a day for messages passed within the system. This component can be deployed on the fog or cloud computing infrastructures.
+* Spark Processor: `cvs-spark-processor` is a powerful streaming analytics tool deployed on the cloud.
+* Database Server: It is implemented by the Apache Cassandra time series database. In order to create the Cassandra database, this file can be used: 
 * etc.
 
-
-This repository explains only three components of the Big Data application:
-
-*  `cvs-kafka-producer`: https://github.com/salmant/Spark-Kafka-Big-Data-Application/tree/master/cvs-kafka-producer
-*  `cvs-spark-processor`: https://github.com/salmant/Spark-Kafka-Big-Data-Application/tree/master/cvs-spark-processor
-*  `cassandra database`: 
-
-Kafka broker: Apache Kafka broker is an open-source distributed streaming platform developed to provide a unified, high-throughput, low-latency broker for handling real-time data feeds. Kafka can connect to external systems for data import/export via Kafka Connect and provides Kafka Streams. Kafka allows applications publish and subscribe to real-time streams of records called `topics`. Kafka is basically used to build real-time streaming Big Data applications or data pipelines.
+**Kafka broker**: Apache Kafka broker is an open-source distributed streaming platform developed to provide a unified, high-throughput, low-latency broker for handling real-time data feeds. Kafka can connect to external systems for data import/export via Kafka Connect and provides Kafka Streams. Kafka allows applications publish and subscribe to real-time streams of records called `topics`. Kafka is basically used to build real-time streaming Big Data applications or data pipelines.
 <br><br>
-Spark streaming analytics engine: Apache Spark is an open-source distributed general-purpose cluster-computing framework. Spark provides an interface for programming entire clusters with implicit data parallelism and fault tolerance. Resilient Distributed Datasets called `RDD` is a fundamental data structure of Spark. It is an immutable distributed collection of objects. RDDs may be operated in parallel across a cluster of computing nodes called Spark Workers. To operate in parallel, RDDs are divided into logical partitions. Therefore, partitions are computed on multiple cluster nodes (Spark Workers). 
+**Spark streaming analytics engine**: Apache Spark is an open-source distributed general-purpose cluster-computing framework. Spark provides an interface for programming entire clusters with implicit data parallelism and fault tolerance. Resilient Distributed Datasets called `RDD` is a fundamental data structure of Spark. It is an immutable distributed collection of objects. RDDs may be operated in parallel across a cluster of computing nodes called Spark Workers. To operate in parallel, RDDs are divided into logical partitions. Therefore, partitions are computed on multiple cluster nodes (Spark Workers). 
 <br><br>
-Apache Cassandra: Cassandra TSDB, usable in many scaling scenarios, is a free, open-source, column-oriented, NoSQL database system exploited to store the time series data. Cassandra database is designed to store and handle large amount of data. It has its own query language called `CQL` (Cassandra Query Language). 
+**Apache Cassandra**: Cassandra TSDB, usable in many scaling scenarios, is a free, open-source, column-oriented, NoSQL database system exploited to store the time series data. Cassandra database is designed to store and handle large amount of data. It has its own query language called `CQL` (Cassandra Query Language). 
 <br><br>
 The `cvs-kafka-producer` running on the edge side receives data from vehicle sensors and recognises different types of unexpected driving dynamics (such as `sudden acceleration`, `hard braking`, `aggressive right turn` and `aggressive left turn`). If there would be any driving dynamics, it instantly sends a run-time message to the Kafka Broker. Moreover, the `cvs-kafka-producer` periodically transmits the `GPS` information that is helpful to know where the vehicle is located or moving, etc. This information will be stored in a Cassandra table named `cvsdatabase.travels_info`. Therefore, messages sent to the Kafka Broker include different fields: [CVSData.java](https://github.com/salmant/Spark-Kafka-Big-Data-Application/blob/master/cvs-kafka-producer/src/main/java/com/cvs/app/kafka/producer/CVSData.java)
 <br>
