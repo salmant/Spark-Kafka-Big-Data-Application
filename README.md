@@ -25,7 +25,7 @@ This repository explains only three components of the Big Data application:
 
 Kafka broker: Apache Kafka broker is an open-source distributed streaming platform developed to provide a unified, high-throughput, low-latency broker for handling real-time data feeds. Kafka can connect to external systems for data import/export via Kafka Connect and provides Kafka Streams. Kafka allows applications publish and subscribe to real-time streams of records called `topics`. Kafka is basically used to build real-time streaming Big Data applications or data pipelines.
 <br><br>
-Spark streaming analytics engine: 
+Spark streaming analytics engine: Apache Spark is an open-source distributed general-purpose cluster-computing framework. Spark provides an interface for programming entire clusters with implicit data parallelism and fault tolerance. Resilient Distributed Datasets called `RDD` is a fundamental data structure of Spark. It is an immutable distributed collection of objects. RDDs may be operated in parallel across a cluster of computing nodes called Spark Workers. To operate in parallel, RDDs are divided into logical partitions. Therefore, partitions are computed on multiple cluster nodes (Spark Workers). 
 <br><br>
 Apache Cassandra: 
 <br><br>
