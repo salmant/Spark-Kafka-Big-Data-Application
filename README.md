@@ -23,7 +23,7 @@ This repository explains only three components of the Big Data application:
 *  `cvs-spark-processor`: https://github.com/salmant/Spark-Kafka-Big-Data-Application/tree/master/cvs-spark-processor
 *  `cassandra database`: 
 
-Kafka broker: 
+Kafka broker: Apache Kafka broker is an open-source distributed streaming platform developed to provide a unified, high-throughput, low-latency broker for handling real-time data feeds. Kafka can connect to external systems for data import/export via Kafka Connect and provides Kafka Streams. Kafka allows applications publish and subscribe to real-time streams of records called `topics`. Kafka is basically used to build real-time streaming Big Data applications or data pipelines.
 <br><br>
 Spark streaming analytics engine: 
 <br><br>
