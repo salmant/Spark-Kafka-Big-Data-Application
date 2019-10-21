@@ -26,11 +26,11 @@ import kafka.producer.ProducerConfig;
 public class CVSDataProducer {
 	
 	private static final Logger logger = Logger.getLogger(CVSDataProducer.class);
-	private static String vehicleId;
+	private static String driverId;
 
 	public static void main(String[] args) throws Exception {
 		
-		vehicleId = args [3]; // e.g. "65440984"	
+		driverId = args [3]; // e.g. "65440984"	
 		String zookeeper = args [0]; /* zookeeper = localhost:2181 */ //configuration details of ZooKeeper
 		String broker = args [1]; /* brokerlist = localhost:9092 */ //configuration details of the Kafka broker
 		// a topic is where data (messages) gets published to by the producer.
@@ -54,7 +54,7 @@ public class CVSDataProducer {
 
 	/*
 	 * Method running in an infinite while loop to generate the data messages. 
-	 * For instance: {"vehicleId":"65440984","travelId":"b2d63d93-d3f0-4139-acba-1331356b6e9c","dateX":"29/09/2019","timeX":"19:21:04","lat":"46.056946","lon":"14.505751","speed":57.0,"eventType":"GPS"}
+	 * For instance: {"driverId":"65440984","travelId":"b2d63d93-d3f0-4139-acba-1331356b6e9c","dateX":"29/09/2019","timeX":"19:21:04","lat":"46.056946","lon":"14.505751","speed":57.0,"eventType":"GPS"}
 	 */
 	private void generateCVSDataMessages(Producer<String, CVSData> producer, String topic) throws InterruptedException {
 		List<String> eventTypeList = Arrays.asList(new String[]{"GPS", "Aggressive Right", "Aggressive Left", "Sudden Acceleration", "Hard Braking"});
@@ -77,7 +77,7 @@ public class CVSDataProducer {
 			//there are five different types of driving dynamics which are "GPS", "Aggressive Right", "Aggressive Left", "Sudden Acceleration" or "Hard Braking".
 			String eventType = eventTypeList.get(rand.nextInt(5)); //take a random eventType which could be "GPS", "Aggressive Right", "Aggressive Left", "Sudden Acceleration" or "Hard Braking"
 			
-			CVSData event = new CVSData(vehicleId, travelId, dateX, timeX, lat, lon, speed, eventType);
+			CVSData event = new CVSData(driverId, travelId, dateX, timeX, lat, lon, speed, eventType);
 			KeyedMessage<String, CVSData> data = new KeyedMessage<String, CVSData>(topic, event);
 			producer.send(data);
 			
