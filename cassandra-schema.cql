@@ -1,4 +1,3 @@
-
 CREATE KEYSPACE IF NOT EXISTS cvsdatabase  
 	WITH REPLICATION = { 
 		'class' : 'SimpleStrategy', 
