@@ -1,6 +1,6 @@
 # Spark-Kafka-Big-Data-Application
 
-This repository represents a small part of a Big Data project (shown below) implemented for the CVS Mobile Company.
+This repository represents a part of a Big Data project (shown below) implemented for the CVS Mobile Company.
 
 ![Image](https://media-exp1.licdn.com/media-proxy/ext?w=800&h=800&f=n&hash=tYIJMhoInxnwEzcGas%2F48XQbX6o%3D&ora=1%2CaFBCTXdkRmpGL2lvQUFBPQ%2CxAVta5g-0R6jnhodx1Ey9KGTqAGj6E5DQJHUA3L0CHH05IbfPWjpLZTfLbr3p0ASfXgAjQBkK-i1SDm3RI7pK47sfo91g8WxJMT5agYUbhl4lWdI)
 
@@ -16,7 +16,7 @@ The CVS Big Data application includes various components deployable on cloud, fo
 * Database Server: It is implemented by the Apache Cassandra time series database. In order to create the Cassandra database, this file can be used: 
 * etc.
 
-**Kafka broker**: Apache Kafka broker is an open-source distributed streaming platform developed to provide a unified, high-throughput, low-latency broker for handling real-time data feeds. Kafka can connect to external systems for data import/export via Kafka Connect and provides Kafka Streams. Kafka allows applications publish and subscribe to real-time streams of records called `topics`. Kafka is basically used to build real-time streaming Big Data applications or data pipelines.
+**Kafka Broker**: Apache Kafka broker is an open-source distributed streaming platform developed to provide a unified, high-throughput, low-latency broker for handling real-time data feeds. Kafka can connect to external systems for data import/export via Kafka Connect and provides Kafka Streams. Kafka allows applications publish and subscribe to real-time streams of records called `topics`. Kafka is basically used to build real-time streaming Big Data applications or data pipelines.
 <br><br>
 **Spark streaming analytics engine**: Apache Spark is an open-source distributed general-purpose cluster-computing framework. Spark provides an interface for programming entire clusters with implicit data parallelism and fault tolerance. Resilient Distributed Datasets called `RDD` is a fundamental data structure of Spark. It is an immutable distributed collection of objects. RDDs may be operated in parallel across a cluster of computing nodes called Spark Workers. To operate in parallel, RDDs are divided into logical partitions. Therefore, partitions are computed on multiple cluster nodes (Spark Workers). 
 <br><br>
