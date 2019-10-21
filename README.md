@@ -19,8 +19,8 @@ The CVS Big Data application includes various components deployable on cloud, fo
 
 This repository explains only three components of the Big Data application:
 
-*  `cvs-kafka-producer`: 
-*  `cvs-spark-processor`: 
+*  `cvs-kafka-producer`: https://github.com/salmant/Spark-Kafka-Big-Data-Application/tree/master/cvs-kafka-producer
+*  `cvs-spark-processor`: https://github.com/salmant/Spark-Kafka-Big-Data-Application/tree/master/cvs-spark-processor
 *  `cassandra database`: 
 
 Kafka broker: 
