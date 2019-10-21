@@ -27,7 +27,7 @@ Kafka broker: Apache Kafka broker is an open-source distributed streaming platfo
 <br><br>
 Spark streaming analytics engine: Apache Spark is an open-source distributed general-purpose cluster-computing framework. Spark provides an interface for programming entire clusters with implicit data parallelism and fault tolerance. Resilient Distributed Datasets called `RDD` is a fundamental data structure of Spark. It is an immutable distributed collection of objects. RDDs may be operated in parallel across a cluster of computing nodes called Spark Workers. To operate in parallel, RDDs are divided into logical partitions. Therefore, partitions are computed on multiple cluster nodes (Spark Workers). 
 <br><br>
-Apache Cassandra: 
+Apache Cassandra: Cassandra TSDB, usable in many scaling scenarios, is a free, open-source, column-oriented, NoSQL database system exploited to store the time series data. Cassandra database is designed to store and handle large amount of data. It has its own query language called `CQL` (Cassandra Query Language). 
 <br><br>
 The `cvs-kafka-producer` running on the edge side receives data from vehicle sensors and recognises different types of unexpected driving dynamics (such as `sudden acceleration`, `hard braking`, `aggressive right turn` and `aggressive left turn`). If there would be any driving dynamics, it instantly sends a run-time message to the Kafka Broker. Moreover, the `cvs-kafka-producer` periodically transmits the `GPS` information that is helpful to know where the vehicle is located or moving, etc. This information will be stored in a Cassandra table named `cvsdatabase.travels_info`. Therefore, messages sent to the Kafka Broker include different fields: [CVSData.java](https://github.com/salmant/Spark-Kafka-Big-Data-Application/blob/master/cvs-kafka-producer/src/main/java/com/cvs/app/kafka/producer/CVSData.java)
 <br>
@@ -65,19 +65,5 @@ In order to instantiate the Kafka broker, you can execute the following command:
 <br><br>
 As you can see, We need to define the values of three environment variables for the Kafka broker. The variable named `KAFKA_ZOOKEEPER_IP` is the IP address of the machine where the ZooKeeper service is running. The variable named `KAFKA_ADVERTISED_HOST_NAME` is the IP address of the machine where the Kafka broker itself is running. And the variable named `KAFKA_TOPIC` is the name of topic where events gets published to by the cvs-kafka-producer.
 <br><br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
