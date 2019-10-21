@@ -1,3 +1,9 @@
+// ------------------------------------------------------------------------
+// Author: Salman Taherizadeh - CVS Mobile Company and Jozef Stefan Institute (JSI)
+// This code is published under the Apache 2 license
+// ------------------------------------------------------------------------
+
+
 CREATE KEYSPACE IF NOT EXISTS cvsdatabase  
 	WITH REPLICATION = { 
 		'class' : 'SimpleStrategy', 
