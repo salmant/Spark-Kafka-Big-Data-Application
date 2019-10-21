@@ -9,11 +9,11 @@ The CVS Big Data project is designed and implemented upon a zero-downtime, scala
 * Vehicle tracking e.g. direction, GPS, mapping, navigation, etc. using HERE.com and Google Map APIs
 * Driver behaviour profiling using AI and Fuzzy Logic
 
-The CVS Big Data application includes various container-based components deployable on cloud, fog and edge computing infrastructures:
-* Kafka Producer: Edge Processing on Raspberry Pi
-* Kafka Broker: Distributed streaming platform capable of handling trillions of events a day for messages passed within the system.
-* Spark Processor: Streaming Analytics in real-time on the cloud
-* Database Server: Apache Cassandra time series database
+The CVS Big Data application includes various components deployable on cloud, fog and edge computing infrastructures:
+* Kafka Producer: It is the edge processing part of the application deployed on Raspberry Pi.
+* Kafka Broker: It is a widely used distributed streaming platform capable of handling trillions of events a day for messages passed within the system.
+* Spark Processor: It is a powerful streaming analytics tool in real-time on the cloud.
+* Database Server: It is implemented by the Apache Cassandra time series database.
 * etc.
 
 
