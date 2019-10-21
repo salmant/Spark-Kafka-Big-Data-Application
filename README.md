@@ -12,7 +12,7 @@ The CVS Big Data project is designed and implemented upon a zero-downtime, scala
 The CVS Big Data application includes various components deployable on cloud, fog and edge computing infrastructures:
 * Kafka Producer: `cvs-kafka-producer` is the edge processing part of the application deployed on Raspberry Pi.
 * Kafka Broker: It is a widely used distributed streaming platform capable of handling trillions of events a day for messages passed within the system. This component can be deployed on the fog or cloud computing infrastructures.
-* Spark Processor: Spark is a powerful streaming analytics tool deployed on the cloud. It has three types of modules: Spark Master, Spark Workers and finally Spark Driver named `cvs-spark-processor`.
+* Spark Processor: Spark is a powerful streaming analytics tool deployed on the cloud. It has three types of modules: `Spark Master`, `Spark Worker` and finally Spark Driver named `cvs-spark-processor`.
 * Database Server: It is implemented by the Apache Cassandra time series database. In order to create the Cassandra database, the schema file can be used: [cassandra-schema.cql](https://github.com/salmant/Spark-Kafka-Big-Data-Application/blob/master/cassandra-schema.cql) 
 * etc.
 
