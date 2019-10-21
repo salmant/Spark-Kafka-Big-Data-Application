@@ -31,16 +31,16 @@ Apache Cassandra:
 <br><br>
 The `cvs-kafka-producer` running on the edge side receives data from vehicle sensors and recognises different types of unexpected driving dynamics (such as `sudden acceleration`, `hard braking`, `aggressive right turn` and `aggressive left turn`). If there would be any driving dynamics, it instantly sends a run-time message to the Kafka Broker. Moreover, the `cvs-kafka-producer` periodically transmits the GPS information that is helpful to know where the vehicle is located or moving, etc. This information will be stored in a Cassandra table named `cvsdatabase.travels_info`. Therefore, messages sent to the Kafka Broker include different fields: CVSData.java
 
-* driverId: Each driver has a unique id. 
-* travelId: Each time a vehicle starts up, a new ID will be generated to be assigned to the travel.
-* dateX: The data on which the data message is sent.
-* timeX: The time implying when the data message is sent.
-* lat: GPS latitude
-* lon: GPS longitude
-* speed: The speed of the vehicle.
-* eventType: The type of message event could be `GPS`, `Aggressive Right`, `Aggressive Left`, `Sudden Acceleration` or `Hard Braking`.
+*  `driverId`: Each driver has a unique id. 
+*  `travelId`: Each time a vehicle starts up, a new ID will be generated to be assigned to the travel.
+*  `dateX`: The data on which the data message is sent.
+*  `timeX`: The time implying when the data message is sent.
+*  `lat`: GPS latitude
+*  `lon`: GPS longitude
+*  `speed`: The speed of the vehicle.
+*  `eventType`: The type of message event could be GPS, Aggressive Right, Aggressive Left, Sudden Acceleration or Hard Braking.
 
-The Kafka broker receives all events sent by the `cvs-kafka-producer`. Afterwards, the Kafka broker forwards all events to the `cvs-spark-processor` which processes the streaming sensor data in real-time, extracts useful knowledge and sends the information to be stored in the Cassandra database. The logistic centre would like to know if any driver is dangerously maneuvering at the moment on situations when many dynamics (`sudden acceleration`, `hard braking`, `aggressive right turn` and `aggressive left turn`) are currently happening. To this end, the `cvs-spark-processor` provides the following knowledge:
+The Kafka broker receives all events sent by the `cvs-kafka-producer`. Afterwards, the Kafka broker forwards all events to the `cvs-spark-processor` which processes the streaming sensor data in real-time, extracts useful knowledge and sends the information to be stored in the Cassandra database. The logistic centre would like to know if any driver is dangerously maneuvering at the moment on situations when many dynamics (sudden acceleration, hard braking, aggressive right turn and aggressive left turn) are currently happening. To this end, the `cvs-spark-processor` provides the following knowledge:
 
 * Calculating the number of each type of dynamics (sudden acceleration, hard braking, aggressive right turn and aggressive left turn as well as GPS) for each travel happend in the last 60 seconds. This information will be stored in a Cassandra table named `cvsdatabase.windowbased_info`. 
 * Calculating the total number of each type of dynamics (sudden acceleration, hard braking, aggressive right turn and aggressive left turn as well as GPS) from the beginning for each travel. This information will be stored in a Cassandra table named `cvsdatabase.totalbased_info`. 
