@@ -76,7 +76,7 @@ public class CVSDataProcessor {
 		 
 		//map Cassandra travels_info table columns
 		Map<String, String> columnNameMappings = new HashMap<String, String>();
-			columnNameMappings.put("vehicleId", "vehicleid");
+			columnNameMappings.put("driverId", "driverId");
 			columnNameMappings.put("travelId", "travelid");
 			columnNameMappings.put("dateX", "datex");
 			columnNameMappings.put("timeX", "timex");
