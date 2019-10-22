@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
  */
 public class CVSData implements Serializable {
 	
-	private String vehicleId;
+	private String driverId;
 	private String travelId;
 	private String dateX;
 	private String timeX;
@@ -27,9 +27,9 @@ public class CVSData implements Serializable {
 		
 	}
 	
-	public CVSData(String vehicleId, String travelId, String dateX, String timeX, String lat, String lon, double speed, String eventType) {
+	public CVSData(String driverId, String travelId, String dateX, String timeX, String lat, String lon, double speed, String eventType) {
 		super();
-		this.vehicleId = vehicleId;
+		this.driverId = driverId;
 		this.travelId = travelId;
 		this.dateX = dateX;
 		this.timeX = timeX;
@@ -39,8 +39,8 @@ public class CVSData implements Serializable {
 		this.eventType = eventType;
 	}
 	
-	public String getvehicleId() {
-		return vehicleId;
+	public String getdriverId() {
+		return driverId;
 	}
 	
 	public String gettravelId() {
