@@ -71,6 +71,8 @@ public class CVSDataProducer {
 			SimpleDateFormat dateFormat2 = new SimpleDateFormat("HH:mm:ss");
 			String timeX = String.valueOf(dateFormat2.format(date_time));
 			
+			//this part of the project is proprietary and not publically released since it is not the purpose of this repository
+			//therefore, we just put some random values here
 			String lat = "46.056946"; //it should be taken from the GPS sensor
 			String lon = "14.505751"; //it should be taken from the GPS sensor
 			double speed = rand.nextInt(150); //take a random speed between 0 to 150 - it should be taken from the vehicle velocity sensor
