@@ -64,5 +64,8 @@ We would like to set up a Spark standalone cluster with one `Spark Master` and a
 In order to instantiate the `Spark Worker`, you can execute the following command:<br><br>
 `docker run -p 8081:8081 -e SPARK_MASTER_IP=Z.Z.Z.Z -e ENABLE_INIT_DAEMON=false -d salmant/cvs_spark_worker_cloud:1.2`
 <br><br>
-In order to deploy the `Spark Worker`, we need to define the value of an environment variable named `SPARK_MASTER_IP` which is the IP address of the machine where the `Spark Master` is running.
+While deploying the `Spark Worker`, we need to define the value of an environment variable named `SPARK_MASTER_IP` which is the IP address of the machine where the `Spark Master` is running.
+<br><br>
+In order to run an instance of the `Cassandra Server`, you can instantiate the following container which already has the database schema:<br><br>
+`docker run -p 7199:7199 -p 7000:7000 -p 7001:7001 -p 9160:9160 -p 9042:9042 -p 8012:8012 -p 61621:61621 -d salmant/cvs_database_server_cloud:1.2`
 
