@@ -1,6 +1,6 @@
 # Spark-Kafka-Big-Data-Application
 
-This repository represents a part of a Big Data project (shown below) implemented for the CVS Mobile Company.
+This repository represents a part of a Big Data project (shown below) implemented by me for the CVS Mobile Company. If you have any question or you would like to discuss any part of the system, please send an email to Salman.Taherizadeh@ijs.si
 
 ![Image](https://media-exp1.licdn.com/media-proxy/ext?w=800&h=800&f=n&hash=tYIJMhoInxnwEzcGas%2F48XQbX6o%3D&ora=1%2CaFBCTXdkRmpGL2lvQUFBPQ%2CxAVta5g-0R6jnhodx1Ey9KGTqAGj6E5DQJHUA3L0CHH05IbfPWjpLZTfLbr3p0ASfXgAjQBkK-i1SDm3RI7pK47sfo91g8WxJMT5agYUbhl4lWdI)
 
