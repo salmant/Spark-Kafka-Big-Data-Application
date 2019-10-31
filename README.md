@@ -58,14 +58,4 @@ In order to instantiate the `Kafka Broker`, you can execute the following comman
 <br><br>
 As you can see, we need to define the values of three environment variables for the `Kafka Broker`. The variable named `KAFKA_ZOOKEEPER_IP` is the IP address of the machine where the `ZooKeeper Service` is running. The variable named `KAFKA_ADVERTISED_HOST_NAME` is the IP address of the machine where the `Kafka Broker` itself is running. And the variable named `KAFKA_TOPIC` is the name of topic where events gets published to by the `cvs-kafka-producer`.
 <br><br>
-We would like to set up a Spark standalone cluster with one `Spark Master` and a `Spark Worker` using the default namespace and resources. In order to instantiate the `Spark Master`, you can execute the following command:<br><br>
-`docker run -p 8080:8080 -p 7077:7077 -e ENABLE_INIT_DAEMON=false -d salmant/cvs_spark_master_cloud:1.2`
-<br><br>
-In order to instantiate the `Spark Worker`, you can execute the following command:<br><br>
-`docker run -p 8081:8081 -e SPARK_MASTER_IP=Z.Z.Z.Z -e ENABLE_INIT_DAEMON=false -d salmant/cvs_spark_worker_cloud:1.2`
-<br><br>
-While deploying the `Spark Worker`, we need to define the value of an environment variable named `SPARK_MASTER_IP` which is the IP address of the machine where the `Spark Master` is running.
-<br><br>
-In order to run an instance of the `Cassandra Server`, you can instantiate the following container which already has the database schema:<br><br>
-`docker run -p 7199:7199 -p 7000:7000 -p 7001:7001 -p 9160:9160 -p 9042:9042 -p 8012:8012 -p 61621:61621 -d salmant/cvs_database_server_cloud:1.2`
-
+Now we need to set up a Spark cluster with one `Spark Master` and a `Spark Worker` using the default namespace and resources. 
