@@ -9,10 +9,15 @@ import kafka.utils.VerifiableProperties;
 // This code is published under the Apache 2 license
 // ------------------------------------------------------------------------
 
+/*
+ * Class to deserialise the CVS data messages.
+ */
+
 public class CVSDataDecoder implements Decoder<CVSData> {
 	
 	private static ObjectMapper objectMapper = new ObjectMapper();
 	
+	//supplying a "VerifiableProperties" constructor is required
 	public CVSDataDecoder(VerifiableProperties verifiableProperties) {
 
     }
@@ -20,6 +25,7 @@ public class CVSDataDecoder implements Decoder<CVSData> {
 	/*
 	 * Method to deserialise CVSData objects.
 	 */
+	//"fromBytes(...)" method to read a byte array
 	public CVSData fromBytes(byte[] bytes) {
 		try {
 			return objectMapper.readValue(bytes, CVSData.class);
