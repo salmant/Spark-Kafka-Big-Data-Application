@@ -42,11 +42,12 @@ public class CVSDataProcessor {
 			.set("spark.cassandra.connection.host", args[5]) /* cassandra.host = 127.0.0.1 */ //configuration details of the Cassandra database server
 			.set("spark.cassandra.connection.port", args[6]) /* cassandra.port = 9042 */ //configuration details of the Cassandra database server
 			.set("spark.cassandra.connection.keep_alive_ms", args[7]); /* cassandra.keep_alive = 10000 */ //configuration details of the Cassandra database server
-		 
+			// The connection to Cassandra will be closed shortly after all the tasks requiring Cassandra connectivity terminate. The period of time for keeping unused connections open is controlled by "spark.cassandra.connection.keep_alive_ms"
+		
 		//batch interval of 5 seconds for incoming stream. It means that our application collects streaming data in batch of five seconds. 	 
 		JavaStreamingContext jssc = new JavaStreamingContext(conf, Durations.seconds(5));
 		 
-		//set the checkpoint directory in Java Streaming context. You can find all checkpoints in this folder.
+		//set the checkpoint directory in Java Streaming context to periodically checkpoint the operations for master fault-tolerance. You can find all checkpoints in this folder.
 		jssc.checkpoint(args[8]); /* checkpoint.dir = /tmp/checkpoint-streaming-data */
 		 
 		Map<String, String> kafkaParams = new HashMap<String, String>();
