@@ -13,6 +13,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
  * Class to represent the CVS data message.
  */
 
+//Kafka stores and transports byte arrays in its topics.
 //Serialization is a mechanism of converting the state of an object into a byte stream. Only the objects of those classes can be serialized which are implementing java.io.Serializable interface.
 //The byte stream created is platform independent. So, the object serialized on one platform can be deserialized on a different platform.
 public class CVSData implements Serializable{
