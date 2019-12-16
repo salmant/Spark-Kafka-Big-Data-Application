@@ -44,7 +44,7 @@ public class CVSDataProcessor {
 		//create a SparkConf object which will load values from any spark.* Java system properties set in our application
 		SparkConf conf = new SparkConf()
 			.setAppName(args[3]) /* app.name = CVS Data Processor */
-			.setMaster(args[4]) /* spark.master = local[*] */
+			.setMaster(args[4]) /* spark.master = local[*] or spark://${SPARK_MASTER_IP}:7077 */
 			.set("spark.cassandra.connection.host", args[5]) /* cassandra.host = 127.0.0.1 */ //configuration details of the Cassandra database server
 			.set("spark.cassandra.connection.port", args[6]) /* cassandra.port = 9042 */ //configuration details of the Cassandra database server
 			.set("spark.cassandra.connection.keep_alive_ms", args[7]); /* cassandra.keep_alive = 10000 */ //configuration details of the Cassandra database server
@@ -58,7 +58,7 @@ public class CVSDataProcessor {
 		 
 		Map<String, String> kafkaParams = new HashMap<String, String>();
 		kafkaParams.put("zookeeper.connect", args[0]); /* zookeeper = localhost:2181 */ //configuration details of ZooKeeper
-		kafkaParams.put("metadata.broker.list", args[1]); /* brokerlist = localhost:9092 */ //configuration details of the Kafka broker
+		kafkaParams.put("metadata.broker.list", args[1]); /* brokerlist = localhost:9092 */ //configuration details of the Kafka broker. Comma is used as a separator, if there would be more than one broker.
 		// a topic is where data is pulled from by the consumer.
 		// CVSDataProcessor consumes all message from this topic.
 		String topic = args[2]; /* topic.name = cvs-data-event */
