@@ -68,6 +68,7 @@ public class CVSDataProcessor {
 		SetOfTopics.add(topic);
 		
 		//read the direct kafka stream
+		//create an input stream that directly pulls messages from Kafka Broker
 		JavaPairInputDStream<String, CVSData> directKafkaStream = KafkaUtils.createDirectStream(
 			        jssc,
 			        String.class,
@@ -81,6 +82,7 @@ public class CVSDataProcessor {
 		logger.info("\n ######### Starting the Spark Stream Processing ######### \n");
 		 
 		//the map operation to get CVSData objects and transform it to JavaDStream
+		//tuple._1 contains topic name
 		JavaDStream<CVSData> CVSDataStream = directKafkaStream.map(tuple -> tuple._2());
 		 
 		//map Cassandra travels_info table columns
