@@ -56,12 +56,14 @@ public class CVSDataProcessor {
 		//set the checkpoint directory in Java Streaming context to periodically checkpoint the operations for master fault-tolerance. You can find all checkpoints in this folder.
 		jssc.checkpoint(args[8]); /* checkpoint.dir = /tmp/checkpoint-streaming-data */
 		 
+		//"Map" is a collection of key-value pairs. It maps keys to values. Map is implemented by "HashMap". HashMap is the object. HashMap cannot contain duplicate keys. HashMap allows null values and the null key. HashMap is an unordered collection. HashMap is not thread-safe. It means that you must explicitly synchronize concurrent modifications to the HashMap.
 		Map<String, String> kafkaParams = new HashMap<String, String>();
 		kafkaParams.put("zookeeper.connect", args[0]); /* zookeeper = localhost:2181 */ //configuration details of ZooKeeper
 		kafkaParams.put("metadata.broker.list", args[1]); /* brokerlist = localhost:9092 */ //configuration details of the Kafka broker. Comma is used as a separator, if there would be more than one broker.
 		// a topic is where data is pulled from by the consumer.
 		// CVSDataProcessor consumes all message from this topic.
 		String topic = args[2]; /* topic.name = cvs-data-event */
+		//"Set" represents a collection of objects where each object in the Set is unique. In other words, the same object cannot occur more than once in a Java Set. Set is implemented by "HashSet". The main different from a "List" where each element can occur more than once.
 		Set<String> SetOfTopics = new HashSet<String>();
 		SetOfTopics.add(topic);
 		
