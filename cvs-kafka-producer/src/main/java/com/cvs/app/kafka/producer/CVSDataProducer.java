@@ -26,6 +26,13 @@ import kafka.producer.ProducerConfig;
 public class CVSDataProducer {
 	
 	private static final Logger logger = Logger.getLogger(CVSDataProducer.class);
+	/*
+	Regardless of the logging framework in use (log4j, logback, commons-logging, java.util.logging, etc.), loggers should be:
+	- private: never be accessible outside of its parent class. If another class needs to log something, it should instantiate its own logger.
+	- static: not be dependent on an instance of a class (an object). When logging something, contextual information can of course be provided in the messages but the logger should be created at class level to prevent creating a logger along with each object.
+	- final: be created once and only once per class.
+	*/
+	
 	private static String driverId;
 
 	public static void main(String[] args) throws Exception {
