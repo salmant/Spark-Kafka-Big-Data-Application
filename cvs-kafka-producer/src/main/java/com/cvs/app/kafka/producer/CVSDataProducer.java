@@ -91,7 +91,11 @@ public class CVSDataProducer {
 			String eventType = eventTypeList.get(rand.nextInt(5)); //take a random eventType which could be "GPS", "Aggressive Right", "Aggressive Left", "Sudden Acceleration" or "Hard Braking"
 			
 			CVSData event = new CVSData(driverId, travelId, dateX, timeX, lat, lon, speed, eventType);
+			
+			//create a message and add to buffer
 			KeyedMessage<String, CVSData> data = new KeyedMessage<String, CVSData>(topic, event);
+			//KeyedMessage<String, Object>(topic: String, event: Object)
+			
 			producer.send(data);
 			
 			Thread.sleep(5000); //it periodically sends a data message called event to the Kafka message broker every 5 seconds
