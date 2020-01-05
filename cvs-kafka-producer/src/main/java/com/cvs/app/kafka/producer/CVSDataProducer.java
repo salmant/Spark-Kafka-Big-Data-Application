@@ -54,6 +54,10 @@ public class CVSDataProducer {
 		
 		//generate event
 		Producer<String, CVSData> producer = new Producer<String, CVSData>(new ProducerConfig(properties));
+		//Producer is a Java Generic. Type of two parameters should be defined. 
+		//The first is the type of the Partition Key, the second one is the type of the message to be sent. 
+		//If the key is null, then the Producer will assign the message to a random Partition.
+		
 		CVSDataProducer cvsProducer = new CVSDataProducer();
 		cvsProducer.generateCVSDataMessages(producer,topic);		
 	}
